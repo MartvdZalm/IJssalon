@@ -1,4 +1,5 @@
 <?php
+namespace Controllers;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -15,20 +16,7 @@ class BaseController
     
     protected function render($template, $data = [])
     {
-        $defaultData = [
-            'websiteTitle' => 'IJssalon',
-        ];
-
-        $data = array_merge($defaultData, $data);
-
-        $header = $this->twig->render('header.twig', $data);
-        $footer = $this->twig->render('footer.twig', $data);
-
-        $content = $this->twig->render($template, $data);
-
-        echo $header;
-        echo $content;
-        echo $footer;
+        echo $this->twig->render($template, $data);
     }
 
     protected function redirect($url)
@@ -48,13 +36,6 @@ class BaseController
         return $formData;
     }
 
-    /* 
-    Example
-    $rules = [
-        'name' => ['required'],
-        'email' => ['email'],
-    ];
-    */
     protected function validate($formData, $rules)
     {
         $errors = [];

@@ -1,5 +1,7 @@
 {{ header }}
-<div>
-  <p>{{ content }}</p>
-</div>
+<ul>
+  {% for product in products %}
+      <p>{{ product.Name }} - {{ product.Price }}</p>
+  {% endfor %}
+</ul>
 {{ footer }}

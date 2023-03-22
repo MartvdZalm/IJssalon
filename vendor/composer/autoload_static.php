@@ -18,8 +18,14 @@ class ComposerStaticInit4ddac5decc5007faa6bda4d8240af760
         ),
         'S' => 
         array (
+            'System\\DB\\' => 10,
+            'System\\Common\\' => 14,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+        ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
         ),
     );
 
@@ -28,6 +34,14 @@ class ComposerStaticInit4ddac5decc5007faa6bda4d8240af760
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
+        'System\\DB\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/System/DB',
+        ),
+        'System\\Common\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/System/Common',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -35,6 +49,10 @@ class ComposerStaticInit4ddac5decc5007faa6bda4d8240af760
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Controllers',
         ),
     );
 
