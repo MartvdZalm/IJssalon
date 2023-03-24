@@ -6,8 +6,10 @@ define('HTTP_SERVER', 'http://localhost/IJssalon/');
 define('DIR_ROOTFOLDER', 'IJssalon/');
 
 define('DIR_APPLICATION', 'view/');
+
 define('DIR_TEMPLATES', DIR_APPLICATION . 'templates/');
-define('DIR_STYLESHEETS', DIR_APPLICATION . 'stylesheet/');
+define('DIR_CSS', DIR_APPLICATION . 'stylesheet/');
+define('DIR_JAVASCRIPT', DIR_APPLICATION . 'javascript/');
 
 define('DIR_VENDOR', 'vendor/');
 

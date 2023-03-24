@@ -1,25 +1,126 @@
+:root {
+    --main-radius: 5px;
+    --main-padding: 5px;
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
+    text-decoration: none;
 }
+
+
+/* ================================================================================
+START Page css
+===================================================================================*/ 
+
+body {
+  display: grid; 
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 80px 1fr 1.5fr 0.6fr;
+  grid-template-areas: 
+    "header header header header"
+    "content1 main main main"
+    "content2 main main main"
+    "footer footer footer footer"
+  ;
+  grid-gap: 0.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  grid-auto-rows: max-content; 
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 0.5fr 1.5fr 0.7fr 0.6fr;
+        grid-template-areas: 
+        "header"
+        "content1"
+        "main"
+        "content2"
+        "footer"
+        ;
+    }
+}
+
+main {
+    grid-area: main;
+    border-radius: var(--main-radius);
+    padding: var(--main-padding);
+    border: 2px solid black;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 50%;
+    outline: 2px solid black;
+}
+
+.content1,
+.content2 {
+    grid-area: content1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--main-radius);
+    padding: var(--main-padding);
+    border: 2px solid black;
+}
+
+.content1 a,
+.content2 a {
+    color: black;
+}
+
+.content2 {grid-area: content2;}
+
+.content1 h2,
+.content2 h2 {
+    margin: 10px;
+}
+
+.content1 button {
+    padding: 8px 40px;
+    border: none;
+    border-radius: var(--main-radius);
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* ================================================================================
+START Page css
+===================================================================================*/ 
+
+
+
+/* ================================================================================
+START Register and Login css
+===================================================================================*/ 
 
 .register-container {
     display: grid;
+    grid-column: 1 / 5;
     place-items: center;
     height: 100vh;
     background: url('../image/login-bg.jpg') no-repeat;
     background-size: cover;
+    text-transform: none;
 }
 
-form {
+.register-container form {
     display: grid;
-    width: 25%;
-    height: 60%;
-    min-height: 400px;
-    min-width: 250px;
-    background-color: rgba(0, 0, 0, 0.5);
-    grid-template-columns: 1fr;
+    min-width: 350px;
+    background-color: rgba(0, 0, 0, 0.7);
     justify-items: center;
     align-items: center;
     padding: 1rem;
@@ -27,38 +128,50 @@ form {
     border-radius: 5px;
 }
 
-h1 {
+.register-container h1 {
     color: white;
 }
 
-.form-group {
-    display: grid;
+.register-container .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     grid-template-columns: 1fr;
     width: 85%;
+    padding: 15px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.register-container .form-link {
+    color: rgb(44, 133, 221);
+    margin: 10px;
+}
+
+.register-container .error {
+    color: red;
+}
+
+.register-container input {
     padding: 0.7rem 0;
     font-size: 1rem;
+    width: 100%;
     background-color: inherit;
     border: none;   
     border-bottom: 1px solid white;
     color: white;
 }
 
-input::placeholder {
+.register-container input::placeholder {
     color: white;
 }
 
-input:focus {
+.register-container input:focus {
     outline: none;
     background-color: inherit;
 }
 
-button[type="submit"] {
+.register-container button[type="submit"] {
     padding: 0.5rem;
+    margin: 10px;
     width: 85%;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -67,3 +180,182 @@ button[type="submit"] {
     transition: all 0.2s ease-in-out;
     border: none;
 }
+
+/* ================================================================================
+END Register and Login css
+===================================================================================*/ 
+
+
+
+
+
+
+/* ================================================================================
+START Header css
+===================================================================================*/ 
+
+
+  
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 25px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+  
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+  
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+  
+nav li {
+    margin-left: 20px;
+}
+  
+nav li:first-child {
+    margin-left: 0;
+}
+  
+nav a {
+    color: #333;
+    text-decoration: none;
+}
+  
+nav a:hover {
+    text-decoration: underline;
+}
+  
+.menu-toggle {
+    display: none;
+}
+  
+@media only screen and (max-width: 768px) {
+    
+    nav ul {
+        display: none;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    nav li {
+        margin: 10px 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .menu-toggle span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 5px 0;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+}
+  
+/* ================================================================================
+END Header css
+===================================================================================*/ 
+
+
+
+
+/* ================================================================================
+START Footer css
+===================================================================================*/
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #f5f5f5;
+    padding: 40px;
+    color: #333;
+}
+  
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-width: 100px;
+    margin: 5px 0;
+    justify-content: center;
+}
+
+.footer-row h3 {
+    margin-bottom: 20px;
+}
+
+.footer-row ul {
+    list-style: none;
+}
+
+.footer-row li {
+    margin-bottom: 10px;
+}
+
+.footer-row a {
+    color: #666;
+}
+
+.footer-row a:hover {
+    color: #333;
+}
+  
+/* ================================================================================
+END Footer css
+===================================================================================*/ 
+
+
+
+
+
+/* ================================================================================
+START home css
+===================================================================================*/ 
+
+.home {
+
+}
+
+/* ================================================================================
+END home css
+===================================================================================*/ 
+
+/* ================================================================================
+START order css
+===================================================================================*/ 
+
+.order {
+    text-align: left;
+}
+
+/* ================================================================================
+END order css
+===================================================================================*/ 

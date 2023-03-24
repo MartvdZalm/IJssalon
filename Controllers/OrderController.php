@@ -1,13 +1,13 @@
 <?php
 namespace Controllers;
 
-class HomeController extends BaseController
+class OrderController extends BaseController
 {
     public function index()
     {
         $data = array(
             'styles' => $this->styles,
-            'title' => 'Home',
+            'title' => 'Order',
             'headerLinks' => $this->headerLinks,
             'isLoggedIn' => isset($_SESSION['id']),
         );
@@ -16,7 +16,7 @@ class HomeController extends BaseController
 
         $this->render('content1.twig');
 
-        $this->render('home.twig');
+        $this->render('order.twig');
         
         $this->render('content2.twig');
 

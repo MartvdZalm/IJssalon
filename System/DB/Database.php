@@ -23,6 +23,14 @@ class Database
   
       return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function queryOneRow($query, $params = array()) 
+    {
+      $statement = $this->pdo->prepare($query);
+      $statement->execute($params);
+  
+      return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
   
     public function execute($query, $params = array())
     {

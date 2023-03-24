@@ -1,5 +1,32 @@
         <footer>
-            <h1>Footer</h1>
+            <div class="footer-row">
+                <h3>Row 1</h3>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+            </div>
+            <div class="footer-row">
+                <h3>Row 2</h3>
+                <ul>
+                    <li><a href="#">Link 4</a></li>
+                    <li><a href="#">Link 5</a></li>
+                    <li><a href="#">Link 6</a></li>
+                </ul>
+            </div>
+            <div class="footer-row">
+                <h3>Row 3</h3>
+                <ul>
+                    <li><a href="#">Link 7</a></li>
+                    <li><a href="#">Link 8</a></li>
+                    <li><a href="#">Link 9</a></li>
+                </ul>
+            </div>
         </footer>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    {% for script in scripts %}
+    <script src={{ script }}></script>
+    {% endfor %}
 </html>

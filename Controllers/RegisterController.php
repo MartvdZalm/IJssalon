@@ -1,19 +1,43 @@
 <?php
 namespace Controllers;
 
+use System\Common\User;
+
 class RegisterController extends BaseController
 {
     public function index()
     {
-        $styles = array(
-            DIR_STYLESHEETS.'stylesheet.css', 
-            DIR_STYLESHEETS.'stylesheet.scss'
-        );
-
+        $formNames = ['username', 'email', 'password', 'confirmPassword'];
+        $rules = [
+            'username' => 'required',
+            'email' => 'email',
+            'password' => 'min_length',
+            'confirmPassword' => 'min_length'
+        ];
+    
         $data = array(
-            'styles' => $styles
+            'styles' => $this->styles,
+            'signInLink' => HTTP_SERVER.'login',
         );
+    
+        if (isset($_POST['register'])) {
+            $formData = $this->getFormData($formNames);
+            $errors = $this->validate($formData, $rules);
 
+            if (empty($errors)) {
+                $user = new User();
+
+                $error = $user->register($formData);
+                if (empty($error)) {
+                    $this->redirect(HTTP_SERVER.'login');
+                }
+
+                $errors['extraError'] = $error;
+            }
+
+            $data['errors'] = $errors;
+        }
+    
         $this->render('register.twig', $data);
     }
 }
