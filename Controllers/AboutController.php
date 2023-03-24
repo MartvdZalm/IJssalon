@@ -3,7 +3,7 @@ namespace Controllers;
 
 use System\Common\ProductManager;
 
-class OrderController extends BaseController
+class AboutController extends BaseController
 {
     public function index()
     {
@@ -13,10 +13,7 @@ class OrderController extends BaseController
 
         $this->content1($productManager);
 
-        $data = array(
-            'producten' => $productManager->getProducts(),
-        );
-        $this->render('order.twig', $data);
+        $this->render('about.twig');
         
         $this->content2($productManager);
 

@@ -1,12 +1,8 @@
 <div class="content2">
     <h2>Popular flavours</h2>
-    <a href="#">
-        <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
+    {% for product in producten %}
+    <a href="product/{{ product.id }}">
+        <img src="view/image/{{ product.Image }}" alt={{ product.Name }}>
     </a>
-    <a href="#">
-        <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-    </a>
-    <a href="#">
-        <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-    </a>
+    {% endfor %}
 </div>

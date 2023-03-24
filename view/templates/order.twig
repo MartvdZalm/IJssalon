@@ -1,41 +1,16 @@
 <main class="order">
     <h2>Flavours</h2>
     <div>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
-        <a href="#">
-            <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
-        </a>
+        {% for product in producten %}
+        <div>
+            <a href="product/{{ product.id }}">
+                <img src="view/image/{{ product.Image }}" alt={{ product.Name }}>
+            </a>
+            <a href="product/{{ product.id }}">
+                <button>view</button>
+            </a>
+            <button>Order</button>
+        </div>
+        {% endfor %}
     </div>
 </main>

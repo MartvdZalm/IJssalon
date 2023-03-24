@@ -1,6 +1,8 @@
 <?php
 namespace System\Common;
 
+use System\DB\Database;
+
 class Product
 {
     private $id;
@@ -11,9 +13,19 @@ class Product
 
     private $description;
 
+    private $pdo;
+
     public function __construct($id)
     {
         $this->id = $id;
+        $this->pdo = new Database();
+    }
+
+    public function getProduct()
+    {
+      $query = "SELECT * FROM product WHERE id=:id";
+      $param = array(':id' => $this->id);
+      return $this->pdo->queryOneRow($query, $param);
     }
   
     public function getId()

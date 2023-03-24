@@ -1,7 +1,8 @@
 <div class="content1">
     <h2>flavour of the day</h2>
-    <a href="#">
-        <img src="view/image/strawberry-ice.jpg" alt="strawberry ice">
+    {% if product %}
+    <a href="product/{{ product.id }}">
+        <img src="view/image/{{ product.Image }}" alt={{ product.Name }}>
     </a>
-    <button><a href="#">Order</a></button>
+    {% endif %}
 </div>

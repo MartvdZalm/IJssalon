@@ -26,10 +26,10 @@ class BaseController
         }
 
         $this->headerLinks = array(
-            'Home' => HTTP_SERVER,
-            'Order' => HTTP_SERVER.'order',
+            'Order' => HTTP_SERVER,
             'Blog' => HTTP_SERVER.'blog',
-            'About Us' => HTTP_SERVER.'aboutus',
+            'About Us' => HTTP_SERVER.'about',
+            'Account' => HTTP_SERVER.'account',
             'Cart' => HTTP_SERVER.'cart',
             $linkname => HTTP_SERVER.$linkname,
         );
@@ -91,5 +91,40 @@ class BaseController
         }
 
         return $formData;
+    }
+
+    protected function header()
+    {
+        $data = array(
+            'styles' => $this->styles,
+            'title' => 'Order',
+            'headerLinks' => $this->headerLinks,
+            'isLoggedIn' => isset($_SESSION['id']),
+        );
+        $this->render('header.twig', $data);
+    }
+
+    protected function footer()
+    {
+        $data = array(
+            'scripts' => $this->scripts,
+        );
+        $this->render('footer.twig', $data);
+    }
+
+    protected function content1($product)
+    {
+        $data = array(
+            'product' => $product->getProductOfTheDay(),
+        );
+        $this->render('content1.twig', $data);
+    }
+
+    protected function content2($producten)
+    {
+        $data = array(
+            'producten' => $producten->getBestSelling(),
+        );
+        $this->render('content2.twig', $data);
     }
 }

@@ -18,31 +18,51 @@ START Page css
 body {
   display: grid; 
   min-height: 100vh;
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 80px 1fr 1.5fr 0.6fr;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 80px 4fr minmax(250px, 1fr);
   grid-template-areas: 
-    "header header header header"
-    "content1 main main main"
-    "content2 main main main"
-    "footer footer footer footer"
+    "header"
+    "content"
+    "footer"
   ;
-  grid-gap: 0.2rem;
+  grid-gap: 2rem;
   text-transform: uppercase;
-  text-align: center;
-  grid-auto-rows: max-content; 
+  text-align: center; 
 }
 
-@media only screen and (max-width: 600px) {
+.content {
+    margin: 0 auto;
+    width: 60%;
+    display: grid;
+    grid-area: content;
+    grid-template-columns: minmax(250px, 1fr) 3fr;
+    grid-template-rows: 300px 3fr;
+    grid-template-areas: 
+        "content1 main"
+        "content2 main"
+    ;
+    grid-gap: 2rem;
+    text-align: center;
+}
 
-    body {
+@media only screen and (max-width: 1360px) {.content { width: 70%;}}
+
+@media only screen and (max-width: 1170px) {.content { width: 80%;}}
+
+@media only screen and (max-width: 1020px) {.content { width: 90%;}}
+
+@media only screen and (max-width: 910px) {.content { width: 95%;}}
+
+@media only screen and (max-width: 860px) {
+
+    .content {
+        width: 95%;
         grid-template-columns: 1fr;
-        grid-template-rows: 80px 0.5fr 1.5fr 0.7fr 0.6fr;
+        grid-template-rows: 300px 600px 1fr;
         grid-template-areas: 
-        "header"
         "content1"
-        "main"
         "content2"
-        "footer"
+        "main"
         ;
     }
 }
@@ -79,7 +99,10 @@ img {
     color: black;
 }
 
-.content2 {grid-area: content2;}
+.content2 {
+    grid-area: content2;
+    height: 600px;
+}
 
 .content1 h2,
 .content2 h2 {
@@ -194,8 +217,6 @@ END Register and Login css
 START Header css
 ===================================================================================*/ 
 
-
-  
 header {
     grid-area: header;
     display: flex;
@@ -333,29 +354,69 @@ END Footer css
 ===================================================================================*/ 
 
 
-
-
-
-/* ================================================================================
-START home css
-===================================================================================*/ 
-
-.home {
-
-}
-
-/* ================================================================================
-END home css
-===================================================================================*/ 
-
 /* ================================================================================
 START order css
 ===================================================================================*/ 
 
-.order {
-    text-align: left;
+.order > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.order > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 2px;
+}
+
+.order button,
+.product button {
+    width: 80px;
+    height: 30px;
+    margin: 5px;
+    border: none;
+    border-radius: var(--main-radius);
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.order a {
+    color: black;
 }
 
 /* ================================================================================
 END order css
+===================================================================================*/ 
+
+/* ================================================================================
+START product css
+===================================================================================*/ 
+
+.product .product-image {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product div:last-child {
+    text-transform: none;
+    text-align: left;
+    margin: 40px;
+}
+
+.product img {
+    width: 250px;
+    height: 250px;
+}
+
+/* ================================================================================
+END product css
 ===================================================================================*/ 

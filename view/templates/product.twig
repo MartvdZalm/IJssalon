@@ -1,0 +1,19 @@
+<main class="product">
+    {% if product %}
+    <h2>{{ product.Name }}</h2>
+
+    <div class="product-image">
+        <a href="product/{{ product.id }}">
+            <img src="view/image/{{ product.Image }}" alt={{ product.Name }}>
+        </a>
+        <button>Order</button>
+    </div>
+
+    <div>
+        <p><b>Price:</b> &#x20AC; {{ product.Price }}</p>
+        <p><b>Amount:</b> {{ product.Amount }}</p>
+        <p><b>Stock:</b> {{ product.Stock }}</p>
+        <p><b>Description:</b> {{ product.Description }}</p>
+    </div>
+    {% endif %}
+</main>
