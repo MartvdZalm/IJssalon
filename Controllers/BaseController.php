@@ -26,8 +26,7 @@ class BaseController
         }
 
         $this->headerLinks = array(
-            'Order' => HTTP_SERVER,
-            'Blog' => HTTP_SERVER.'blog',
+            'Shop' => HTTP_SERVER,
             'About Us' => HTTP_SERVER.'about',
             'Account' => HTTP_SERVER.'account',
             'Cart' => HTTP_SERVER.'cart',

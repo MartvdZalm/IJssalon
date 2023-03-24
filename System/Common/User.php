@@ -56,4 +56,11 @@ class User
         $_SESSION['id'] = $user['id'];
         return;
     }
+
+    public function getUser($id)
+    {
+        $query = "SELECT * FROM users WHERE id=:id";
+        $params = array(':id' => $id);
+        return $this->pdo->queryOneRow($query, $params);
+    }
 }

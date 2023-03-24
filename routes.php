@@ -2,8 +2,8 @@
 
 $routes = array(
     '/' => 'OrderController@index',
-    '/blog' => 'HomeController@index',
     '/about' => 'AboutController@index',
+    '/account' => 'AccountController@index',
     '/contact' => 'HomeController@index',
     '/cart' => 'HomeController@index',
     '/register' => 'RegisterController@index',
