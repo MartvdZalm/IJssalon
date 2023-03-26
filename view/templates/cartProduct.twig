@@ -1,0 +1,12 @@
+{% for product in producten %}
+<div>
+    <a href="product/{{ product.id }}">
+        <img src="view/image/{{ product.Image }}" alt={{ product.Name }}>
+    </a>
+    <p>Quantity: {{ quantities[product.id] }}</p>
+    <a href="product/{{ product.id }}">
+        <button>view</button>
+    </a>
+    <button class="remove-button" data-id="{{ product.id }}">Remove</button>
+</div>
+{% endfor %}

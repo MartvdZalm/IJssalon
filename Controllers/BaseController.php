@@ -56,6 +56,18 @@ class BaseController
         return $formData;
     }
 
+    protected function getAjaxData()
+    {
+        // Read the raw POST data from the request body
+        $rawData = file_get_contents("php://input");
+    
+        // Parse the data as JSON
+        $jsonData = json_decode($rawData, true);
+    
+        // Return the data as an associative array
+        return is_array($jsonData) ? $jsonData : array();
+    }
+
     protected function validate($formData, $rules)
     {
         $errors = [];

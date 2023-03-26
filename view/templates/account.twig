@@ -2,8 +2,8 @@
     {% if user %}
     <h2>{{ user.Username }}</h2>
     <div>
-        <form>
-            <div>
+        <form method="post">
+            <div class="account-form">
                 <label for="email">Email: </label> 
                 <input type="email" name="email" id="email" value="{{ user.Email }}" placeholder="Email"> 
                 
@@ -20,7 +20,10 @@
                 <input type="password" name="password" id="password" placeholder="Password"> 
             </div>
             
-            <input type="submit" name="account">
+            <div class="account-buttons">
+                <input type="submit" name="remove" value="remove">
+                <input type="submit" name="change" value="Change">
+            </div>
         </form>
     </div>
     {% endif %}

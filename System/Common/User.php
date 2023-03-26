@@ -54,6 +54,11 @@ class User
         } 
 
         $_SESSION['id'] = $user['id'];
+        if ($user['IsAdmin']) {
+            $_SESSION['authenticated'] = true;
+        } else {
+            $_SESSION['authenticated'] = false;
+        }
         return;
     }
 

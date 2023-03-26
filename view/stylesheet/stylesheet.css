@@ -374,7 +374,8 @@ START order css
 }
 
 .order button,
-.product button {
+.product button,
+.cart-products button {
     width: 80px;
     height: 30px;
     margin: 5px;
@@ -461,12 +462,18 @@ START account css
     align-items: center;
 }
 
-.account form > div {
+.account-form {
     display: grid;
     width: 100%;
     grid-template-columns: 120px auto;
     grid-gap: 10px;
     align-items: center;
+}
+
+.account-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .account label {
@@ -487,8 +494,34 @@ START account css
     font-weight: bold;
 }
 
-
-
 /* ================================================================================
 END account css
+===================================================================================*/ 
+
+/* ================================================================================
+END cart css
+===================================================================================*/ 
+
+.cart > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 2px;
+}
+
+.cart-products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cart-products img {
+    width: 100px;
+    height: 100px;
+}
+
+/* ================================================================================
+END cart css
 ===================================================================================*/ 
