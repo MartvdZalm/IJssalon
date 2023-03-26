@@ -142,7 +142,9 @@ START Register and Login css
 
 .register-container form {
     display: grid;
-    min-width: 350px;
+    min-width: 250px;
+    width: 70%;
+    max-width: 400px;
     background-color: rgba(0, 0, 0, 0.7);
     justify-items: center;
     align-items: center;
@@ -502,13 +504,68 @@ END account css
 END cart css
 ===================================================================================*/ 
 
-.cart > div > div {
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart .cart-products > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 2px solid black;
     margin: 2px;
+}
+
+.cart form {
+    margin-top: 15px;
+    border-top: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.cart form div {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    text-align: left;
+}
+
+.cart form div:first-child {
+    height: fit-content;
+    min-width: fit-content;
+}
+
+.cart form input,
+.cart form span {
+    margin: 10px;
+    border: 2px solid black;
+}
+
+.cart form label {
+    margin: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.cart form input[type=text] {
+    padding: 2px;
+}
+
+.cart form input[type=submit] {
+    padding: 8px 40px;
+    border: none;
+    border-radius: var(--main-radius);
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .cart-products {

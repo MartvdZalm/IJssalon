@@ -1,6 +1,31 @@
 <main class="cart">
-    <h2>Cart</h2>
-    <div class="cart-products">
+    <div>
+        <h2>Cart</h2>
+        <div class="cart-products">
 
+        </div>
     </div>
+    <form method="post">
+        <div>           
+            <label for="deliver">
+                <input type="radio" id="deliver" name="deliverType">
+                Deliver
+            </label>
+
+            <label for="takeoff">
+                <input type="radio" id="takeoff" name="deliverType">
+                Take Off
+            </label>
+        </div>
+        <div>
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Address">
+            <input type="text" placeholder="ZipCode">
+            <input type="text" placeholder="Place">
+            <input type="text" placeholder="Phone number">
+            <input type="date">
+
+            <input type="submit" name="order" value="order">
+        </div>
+    </form>
 </main>
