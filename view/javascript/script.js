@@ -34,7 +34,6 @@ $(document).ready(function() {
     });
   });
 
-
   function cartProducten()
   {
     // Retrieve data from localstorage
@@ -74,5 +73,35 @@ $(document).ready(function() {
   }
 
   cartProducten();
+
+  if (window.location.href == 'http://localhost/IJssalon/cart') {
+    const orderForm = document.querySelector('#order-form');
+
+    orderForm.addEventListener('submit', event => {
+      event.preventDefault();
+    
+      const formData = new FormData(orderForm);
+      const cartData = localStorage.getItem('cart');
+      
+      formData.append('cart', cartData);    
+  
+      $.ajax({
+        url: 'api/makeOrder',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          if (data) {
+            console.log(data);
+          } else {
+            localStorage.clear();
+            window.location.href = "http://localhost/IJssalon/success/order";
+          }
+        },
+      });
+    });
+  }
+
 });
 

@@ -1,15 +1,14 @@
 <?php
 namespace Controllers;
 
+use System\Common\Order;
 use System\DB\Database;
 
 class ApiController extends BaseController
 {
-
     public function cart()
     {
         $pdo = new Database();
-
         $ids = array();
         $quantities = array(); // Initialize array to keep track of product quantities
         $producten = $this->getAjaxData();
@@ -39,5 +38,39 @@ class ApiController extends BaseController
         
 
         $this->render('cartProduct.twig', $data);
+    }
+
+    public function makeOrder()
+    {
+        $formNames = [
+            'Name', 'Address', 'ZipCode',
+            'City', 'PhoneNumber', 'Date',
+            'cart', 'DeliverType',
+        ];
+
+        $rules = [
+            'Address' => 'required',
+            'ZipCode' => 'required',
+            'City' => 'required',
+            'Date' => 'required',
+            'DeliverType' => 'required',  
+        ];
+
+        $formData = $this->getFormData($formNames);
+
+        $cart = json_decode($formData['cart'], true);
+        
+        if (count($cart) != 0) {
+            $errors = $this->validate($formData, $rules);
+            
+            if (empty($errors)) {
+                $order = new Order();
+                $order->makeOrder($cart, $formData);
+            } else {
+                foreach ($errors as $error) {
+                    echo $error;
+                }
+            }
+        }
     }
 }

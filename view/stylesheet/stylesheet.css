@@ -336,7 +336,9 @@ footer {
 }
 
 .footer-row ul {
+    min-height: 100px;
     list-style: none;
+    text-transform: none;
 }
 
 .footer-row li {
@@ -474,6 +476,7 @@ START account css
 
 .account-buttons {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: space-evenly;
     width: 100%;
 }
@@ -485,7 +488,8 @@ START account css
 
 .account input[type=submit] {
     margin-top: 20px;
-    width: 80px;
+    width: fit-content;
+    padding: 0 5px;
     height: 30px;
     border: none;
     border-radius: var(--main-radius);
@@ -494,6 +498,17 @@ START account css
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 450px) {
+    .account label {
+        display: none;
+    }
+
+    .account-form {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 /* ================================================================================
@@ -577,6 +592,18 @@ END cart css
 .cart-products img {
     width: 100px;
     height: 100px;
+}
+
+/* ================================================================================
+END cart css
+===================================================================================*/ 
+
+/* ================================================================================
+END cart css
+===================================================================================*/ 
+
+.success p {
+    text-transform: none;
 }
 
 /* ================================================================================

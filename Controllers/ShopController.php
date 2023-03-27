@@ -3,7 +3,7 @@ namespace Controllers;
 
 use System\Common\ProductManager;
 
-class OrderController extends BaseController
+class ShopController extends BaseController
 {
     public function index()
     {

@@ -5,27 +5,26 @@
 
         </div>
     </div>
-    <form method="post">
+    <form action="api/makeOrder" id="order-form" method="post">
         <div>           
             <label for="deliver">
-                <input type="radio" id="deliver" name="deliverType">
+                <input type="radio" id="deliver" value="Deliver" name="DeliverType">
                 Deliver
             </label>
 
             <label for="takeoff">
-                <input type="radio" id="takeoff" name="deliverType">
+                <input type="radio" id="takeoff" value="TakeOff" name="DeliverType">
                 Take Off
             </label>
         </div>
         <div>
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Address">
-            <input type="text" placeholder="ZipCode">
-            <input type="text" placeholder="Place">
-            <input type="text" placeholder="Phone number">
-            <input type="date">
-
-            <input type="submit" name="order" value="order">
+            <input type="text" name="Name" value="{{ user.Username }}" placeholder="Name">
+            <input type="text" name="Address" value="{{ user.Address }}" placeholder="Address" required>
+            <input type="text" name="ZipCode" value="{{ user.ZipCode }}" placeholder="ZipCode" required>
+            <input type="text" name="City" value="{{ user.City }}" placeholder="City" required>
+            <input type="text" name="PhoneNumber" value="{{ user.PhoneNumber }}" placeholder="Phone number" required>
+            <input type="date" name="Date">
+            <input type="submit" name="Order" value="order">
         </div>
     </form>
 </main>

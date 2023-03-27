@@ -1,7 +1,7 @@
 <?php
 
 $routes = array(
-    '/' => 'OrderController@index',
+    '/' => 'ShopController@index',
     '/about' => 'AboutController@index',
     '/account' => 'AccountController@index',
     '/contact' => 'HomeController@index',
@@ -10,6 +10,8 @@ $routes = array(
     '/login' => 'LoginController@index',
     '/logout' => 'LoginController@logout',
     '/product/{id}' => 'ProductController@index',
+    '/success/order' => 'SuccesController@order',
 
     '/api/cart' => 'ApiController@cart',
+    '/api/makeOrder' => 'ApiController@makeOrder',
 );
