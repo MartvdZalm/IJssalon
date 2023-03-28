@@ -9,7 +9,7 @@ class AboutController extends BaseController
     {
         $productManager = new ProductManager();
 
-        $this->header();
+        $this->header('About');
 
         $this->content1($productManager);
 

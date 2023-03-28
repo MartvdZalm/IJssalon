@@ -27,7 +27,11 @@ class LoginController extends BaseController
 
                 $error = $user->login($formData);
                 if (empty($error)) {
-                    $this->redirect(HTTP_SERVER);
+                    if ($_SESSION['authenticated']) {
+                        $this->redirect(HTTP_ADMIN);
+                    } else {
+                        $this->redirect(HTTP_SERVER);
+                    }
                 }
 
                 $errors['extraError'] = $error;

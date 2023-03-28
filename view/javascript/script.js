@@ -96,7 +96,7 @@ $(document).ready(function() {
             console.log(data);
           } else {
             localStorage.clear();
-            window.location.href = "http://localhost/IJssalon/success/order";
+            window.location.href = "http://localhost/IJssalon/message/order";
           }
         },
       });

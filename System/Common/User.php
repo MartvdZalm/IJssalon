@@ -59,7 +59,6 @@ class User
         } else {
             $_SESSION['authenticated'] = false;
         }
-        return;
     }
 
     public function getUser($id)

@@ -1,6 +1,8 @@
 <?php
 
 $routes = array(
+
+    // Webshop
     '/' => 'ShopController@index',
     '/about' => 'AboutController@index',
     '/account' => 'AccountController@index',
@@ -10,8 +12,20 @@ $routes = array(
     '/login' => 'LoginController@index',
     '/logout' => 'LoginController@logout',
     '/product/{id}' => 'ProductController@index',
-    '/success/order' => 'SuccesController@order',
+    '/message/order' => 'MessageController@order',
+    '/message/account' => 'MessageController@account',
 
+    // Api 
     '/api/cart' => 'ApiController@cart',
     '/api/makeOrder' => 'ApiController@makeOrder',
+    '/api/remove/user' => 'ApiController@removeUser',
+
+
+    // Admin panel
+    '/50249/admin' => 'AdminController@dashboard',
+    '/50249/admin/users' => 'AdminController@users',
+    '/50249/admin/users/{id}' => 'AdminController@user',
+    '/50249/admin/producten' => 'AdminController@producten',
+    '/50249/admin/producten/{id}' => 'AdminController@product',
+    '/50249/admin/orders' => 'AdminController@orders', 
 );

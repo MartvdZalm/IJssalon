@@ -2,6 +2,8 @@
 // HTTP
 define('HTTP_SERVER', 'http://localhost/IJssalon/');
 
+define('HTTP_ADMIN', HTTP_SERVER.'50249/admin');
+
 // DIR
 define('DIR_ROOTFOLDER', 'IJssalon/');
 

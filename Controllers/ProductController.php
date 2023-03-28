@@ -11,12 +11,14 @@ class ProductController extends BaseController
         $productManager = new ProductManager();
         $product = new Product($id);
 
-        $this->header();
+        $data = $product->getProduct();
+
+        $this->header($data['Name']);
 
         $this->content1($productManager);
 
         $data = array(
-            'product' => $product->getProduct(),
+            'product' => $data,
         );
 
         $this->render('product.twig', $data);

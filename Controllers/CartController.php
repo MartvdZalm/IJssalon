@@ -8,10 +8,14 @@ class CartController extends BaseController
 {
     public function index()
     {
+        if (!isset($_SESSION['id'])) {
+            $this->redirect(HTTP_SERVER.'message/account');
+        }   
+
         $productManager = new ProductManager();  
         $user = new User();  
 
-        $this->header();
+        $this->header('Cart');
 
         $this->content1($productManager);
 

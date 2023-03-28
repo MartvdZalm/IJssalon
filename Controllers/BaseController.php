@@ -104,15 +104,32 @@ class BaseController
         return $formData;
     }
 
-    protected function header()
+    protected function header($title)
     {
         $data = array(
             'styles' => $this->styles,
-            'title' => 'Order',
+            'title' => $title,
             'headerLinks' => $this->headerLinks,
             'isLoggedIn' => isset($_SESSION['id']),
         );
         $this->render('header.twig', $data);
+    }
+
+    protected function adminHeader($title)
+    {
+        $data = array(
+            'styles' => array(DIR_CSS.'admin.css') ,
+            'title' => $title,
+        );
+        $this->render('adminHeader.twig', $data);
+    }
+
+    protected function adminFooter()
+    {
+        $data = array(
+            'scripts' => array(DIR_JAVASCRIPT.'admin.js'),
+        );
+        $this->render('adminFooter.twig', $data);
     }
 
     protected function footer()

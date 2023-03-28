@@ -9,7 +9,7 @@ class ShopController extends BaseController
     {
         $productManager = new ProductManager();
 
-        $this->header();
+        $this->header('Shop');
 
         $this->content1($productManager);
 

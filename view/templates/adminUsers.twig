@@ -1,0 +1,27 @@
+<div class="content">
+    <h1>Users</h1>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                {% if user.IsAdmin != 1 %}
+                    <tr data-href="http://localhost/IJssalon/50249/admin/users/{{ user.id }}">
+                        <td data-label="ID">{{ user.id }}</td>
+                        <td data-label="Name">{{ user.Username }}</td>
+                        <td data-label="Email">{{ user.Email }}</td>
+                        <td data-label="Role">{{ 'Customer' }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

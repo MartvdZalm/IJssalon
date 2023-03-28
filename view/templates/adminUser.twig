@@ -1,0 +1,26 @@
+<div class="content">
+    <h1>{{ user.Username }}</h1>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="ID">{{ user.id }}</td>
+                    <td data-label="Name">{{ user.Username }}</td>
+                    <td data-label="Email">{{ user.Email }}</td>
+                    <td data-label="Role">{{ user.IsAdmin == 0 ? 'Customer' : 'Admin' }}</td>
+                    <td><button class="btn-delete">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -43,14 +43,13 @@ class ApiController extends BaseController
     public function makeOrder()
     {
         $formNames = [
-            'Name', 'Address', 'ZipCode',
-            'City', 'PhoneNumber', 'Date',
-            'cart', 'DeliverType',
+            'Address','City', 
+            'Date','DeliverType',
+            'cart', 
         ];
 
         $rules = [
             'Address' => 'required',
-            'ZipCode' => 'required',
             'City' => 'required',
             'Date' => 'required',
             'DeliverType' => 'required',  
@@ -72,5 +71,15 @@ class ApiController extends BaseController
                 }
             }
         }
+    }
+
+    public function removeUser()
+    {
+        $pdo = new Database();
+        $data = $this->getFormData(array('id'));
+        
+        $query = "DELETE FROM users WHERE id=?";
+        $params = array($data['id']);
+        $pdo->query($query, $params);
     }
 }

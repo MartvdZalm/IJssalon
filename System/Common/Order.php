@@ -14,12 +14,13 @@ class Order
 
     public function makeOrder($ids, $formData)
     {
-        $query = "INSERT INTO `order` (Name, Address, ZipCode, City, PhoneNumber, Type, Date) 
-        VALUES (:name, :address, :zipcode, :city, :phonenumber, :type, :date)";
+        $id = $_SESSION['id'];
+
+        $query = "INSERT INTO `order` (User, Address, City, Type, Date) 
+        VALUES (:user, :address, :city, :type, :date)";
         $params = array(
-            ':name' => $formData['Name'], ':address' => $formData['Address'],
-            ':zipcode' => $formData['ZipCode'], ':city' => $formData['City'],
-            ':phonenumber' => $formData['PhoneNumber'], ':type' => $formData['DeliverType'],
+            ':user' => $id, ':address' => $formData['Address'], 
+            ':city' => $formData['City'], ':type' => $formData['DeliverType'],
             ':date' => $formData['Date'],
         );
 

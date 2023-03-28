@@ -44,7 +44,7 @@ class AccountController extends BaseController
             }
         }
 
-        $this->header();
+        $this->header('Account');
 
         $this->content1($productManager);
 

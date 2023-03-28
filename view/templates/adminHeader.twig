@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color">
+        <base href="http://localhost/IJssalon/">
+        {% for style in styles %}
+        <link rel="stylesheet" href={{ style }}>
+        {% endfor %}
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <div class="sidebar">
+            <a href="/IJssalon/50249/admin">Dashboard</a>
+            <a href="/IJssalon/50249/admin/users">Users</a>
+            <a href="/IJssalon/50249/admin/producten">Producten</a>
+            <a href="/IJssalon/50249/admin/orders">Orders</a>
+            <a href="/IJssalon/">Webshop</a>
+            <a href="/IJssalon/logout">Logout</a>
+        </div>
