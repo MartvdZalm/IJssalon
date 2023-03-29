@@ -5,36 +5,38 @@ use System\DB\Database;
 
 class Order
 {
+    private $id;
+
     private $pdo;
 
-    public function __construct()
+    public function __construct($id)
     {
+        $this->id = $id;
         $this->pdo = new Database();
     }
 
-    public function makeOrder($ids, $formData)
+    public function getOrder()
     {
-        $id = $_SESSION['id'];
-
-        $query = "INSERT INTO `order` (User, Address, City, Type, Date) 
-        VALUES (:user, :address, :city, :type, :date)";
-        $params = array(
-            ':user' => $id, ':address' => $formData['Address'], 
-            ':city' => $formData['City'], ':type' => $formData['DeliverType'],
-            ':date' => $formData['Date'],
-        );
-
-        $this->pdo->query($query, $params);
-        $orderId = $this->pdo->lastInsertId();
-      
-        $query = "INSERT INTO orderproduct (`Order`, `Product`) VALUES (:order, :product)";
-        foreach ($ids as $productId) {
-            $params = array(
-                ':order' => $orderId,
-                ':product' => $productId['id']
-            );
-            $this->pdo->query($query, $params);
-        }
+        $query = "SELECT `order`.*, users.Username AS 'Name' FROM `order` LEFT JOIN users ON `order`.user = users.id WHERE `order`.id = ?";
+        return $this->pdo->queryOneRow($query, array($this->id));
     }
-    
+
+    public function getProducts()
+    {
+        $query = "SELECT product.* FROM `order` LEFT JOIN orderproduct ON orderproduct.Order = `order`.`id`
+        LEFT JOIN product ON product.id = orderproduct.Product WHERE `order`.`id`=?";
+        return $this->pdo->query($query, array($this->id));
+    }
+
+    public function accept()
+    {
+        $query = "UPDATE `order` SET Status='ACCEPTED'";
+        $this->pdo->query($query);
+    }
+
+    public function cancel()
+    {
+        $query = "UPDATE `order` SET Status='CANCELED'";
+        $this->pdo->query($query);
+    }
 }

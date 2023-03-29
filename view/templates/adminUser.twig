@@ -7,17 +7,27 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Address</th>
+                    <th>ZipCode</th>
+                    <th>City</th>
+                    <th>PhoneNumber</th>
                     <th>Role</th>
+                    <th>Created</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="ID">{{ user.id }}</td>
-                    <td data-label="Name">{{ user.Username }}</td>
-                    <td data-label="Email">{{ user.Email }}</td>
-                    <td data-label="Role">{{ user.IsAdmin == 0 ? 'Customer' : 'Admin' }}</td>
-                    <td><button class="btn-delete">Delete</button></td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.Username }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td>{{ user.Address }}</td>
+                    <td>{{ user.ZipCode }}</td>
+                    <td>{{ user.City }}</td>
+                    <td>{{ user.PhoneNumber }}</td>
+                    <td>{{ user.IsAdmin == 0 ? 'Customer' : 'Admin' }}</td>
+                    <td>{{ user.Created }}</td>
+                    <td><button class="user-delete">Delete</button></td>
                 </tr>
             </tbody>
         </table>

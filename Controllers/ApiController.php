@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-use System\Common\Order;
+use System\Common\OrderManager;
 use System\DB\Database;
 
 class ApiController extends BaseController
@@ -63,7 +63,7 @@ class ApiController extends BaseController
             $errors = $this->validate($formData, $rules);
             
             if (empty($errors)) {
-                $order = new Order();
+                $order = new OrderManager();
                 $order->makeOrder($cart, $formData);
             } else {
                 foreach ($errors as $error) {

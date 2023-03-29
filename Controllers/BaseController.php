@@ -56,6 +56,21 @@ class BaseController
         return $formData;
     }
 
+    protected function getFormFileNames($formFields)
+    {
+        $formData = [];
+
+        foreach ($formFields as $field) {
+            $formData[$field] = basename($_FILES[$field]['name']) ?? null;
+            
+            $tempFile = $_FILES[$field]['tmp_name'];
+            $destination = DIR_IMAGES.$formData[$field];
+            move_uploaded_file($tempFile, $destination);
+        }
+
+        return $formData;
+    }
+
     protected function getAjaxData()
     {
         // Read the raw POST data from the request body

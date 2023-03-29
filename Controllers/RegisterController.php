@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-use System\Common\User;
+use System\Common\UserManager;
 
 class RegisterController extends BaseController
 {
@@ -25,7 +25,7 @@ class RegisterController extends BaseController
             $errors = $this->validate($formData, $rules);
 
             if (empty($errors)) {
-                $user = new User();
+                $user = new UserManager();
 
                 $error = $user->register($formData);
                 if (empty($error)) {

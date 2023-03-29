@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-use System\Common\User;
+use System\Common\UserManager;
 
 class LoginController extends BaseController
 {
@@ -23,7 +23,7 @@ class LoginController extends BaseController
             $errors = $this->validate($formData, $rules);
 
             if (empty($errors)) {
-                $user = new User();
+                $user = new UserManager();
 
                 $error = $user->login($formData);
                 if (empty($error)) {

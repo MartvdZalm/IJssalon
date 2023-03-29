@@ -27,5 +27,7 @@ $routes = array(
     '/50249/admin/users/{id}' => 'AdminController@user',
     '/50249/admin/producten' => 'AdminController@producten',
     '/50249/admin/producten/{id}' => 'AdminController@product',
-    '/50249/admin/orders' => 'AdminController@orders', 
+    '/50249/admin/producten/add' => 'AdminController@productAdd',
+    '/50249/admin/orders' => 'AdminController@orders',
+    '/50249/admin/orders/{id}' => 'AdminController@order',  
 );

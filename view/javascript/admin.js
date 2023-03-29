@@ -8,7 +8,7 @@ $(document).ready(function() {
     window.location = $(this).data('href');
   });
 
-  $('.btn-delete').click(function() {
+  $('.user-delete').click(function() {
     var userID = $(this).closest('tr').find('td:first-child').text();
 
     $.ajax({
@@ -19,6 +19,18 @@ $(document).ready(function() {
         window.location.href = 'http://localhost/IJssalon/50249/admin/users';
       },
     });
+  });
+
+
+  $('#product-image').on('change', function() {
+    const file = $(this).prop('files')[0];
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    
+    reader.onload = function(e) {
+      $('#preview-image').attr('src', e.target.result);
+    }
   });
 
 });

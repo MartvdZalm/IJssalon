@@ -71,9 +71,14 @@ body {
     height: 40px;
 }
 
-.table th,
+.table th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
 .table td {
     padding: 8px;
+    height: 30px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -87,7 +92,7 @@ body {
     background-color: #f2f2f2;
 }
 
-.btn-delete {
+.user-delete {
     background-color: black;
     color: #fff;
     border: none;
@@ -105,7 +110,7 @@ body {
     color: #fff;
 }
 
-.table tbody tr:hover .btn-delete {
+.table tbody tr:hover .user-delete {
     opacity: 1;
 }
 
@@ -141,3 +146,118 @@ body {
         text-align: left;
     }
 }
+
+.product-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 6px #999;
+}
+
+.add-button:hover {background-color: #3e8e41}
+
+.add-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+}
+
+.container {
+    margin: auto;
+    width: 80%;
+    padding-top: 50px;
+}
+  
+.form-group {
+    margin-bottom: 20px;
+}
+  
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+select {
+    height: 40px;
+}
+  
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color: red;
+}
+  
+.btn:hover {
+    background-color: #45a049;
+}
+  
+#preview-image {
+    display: block;
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+  
+.custom-file-input::before {
+    content: 'Choose file';
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.custom-file-input:hover::before {
+    background-color: #45a049;
+}
+  
+.custom-file-input:active::before {
+    background-color: #3e8e41;
+}
+  
+.custom-file-label {
+    margin-top: 10px;
+}
+  
+  

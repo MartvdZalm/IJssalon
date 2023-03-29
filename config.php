@@ -2,7 +2,7 @@
 // HTTP
 define('HTTP_SERVER', 'http://localhost/IJssalon/');
 
-define('HTTP_ADMIN', HTTP_SERVER.'50249/admin');
+define('HTTP_ADMIN', HTTP_SERVER.'50249/admin/');
 
 // DIR
 define('DIR_ROOTFOLDER', 'IJssalon/');
@@ -12,6 +12,7 @@ define('DIR_APPLICATION', 'view/');
 define('DIR_TEMPLATES', DIR_APPLICATION . 'templates/');
 define('DIR_CSS', DIR_APPLICATION . 'stylesheet/');
 define('DIR_JAVASCRIPT', DIR_APPLICATION . 'javascript/');
+define('DIR_IMAGES', DIR_APPLICATION . 'image/');
 
 define('DIR_VENDOR', 'vendor/');
 

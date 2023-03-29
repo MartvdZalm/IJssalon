@@ -18,11 +18,6 @@ class ProductManager
         return $this->pdo->query($query);
     }
 
-    public function getNewest()
-    {
-        
-    }
-
     public function getProductOfTheDay()
     {
         $query = "SELECT * FROM product WHERE FlavourOfTheday = TRUE LIMIT 1";
@@ -33,5 +28,12 @@ class ProductManager
     {
         $query = "SELECT * FROM product ORDER BY Bought DESC LIMIT 3";
         return $this->pdo->query($query);
+    }
+
+    public function addProduct($data, $images)
+    {
+        $query = "INSERT INTO product (Name, Price, Description, Image, Quantity, Brand) VALUES (?, ?, ?, ?, ?, ?)";
+        $params = array($data['name'], $data['price'], $data['description'], $images['image'], $data['quantity'], $data['brand']);
+        $this->pdo->query($query, $params);
     }
 }
