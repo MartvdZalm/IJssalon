@@ -36,7 +36,6 @@ $(document).ready(function() {
 
   function cartProducten()
   {
-    // Retrieve data from localstorage
     var cartData = localStorage.getItem("cart");
 
     $.ajax({
@@ -46,20 +45,18 @@ $(document).ready(function() {
       success: function(response) {
         $('.cart-products').html(response);
 
-        // Get all remove buttons
         const removeButtons = document.querySelectorAll('.remove-button');
         
-        // Loop through each remove button and add a click event listener
         removeButtons.forEach(button => {
           button.addEventListener('click', () => {
-            // Get the product ID from the data-id attribute
+       
             var productId = button.getAttribute('data-id');
   
             var cartData = localStorage.getItem("cart");
             var cartArray = JSON.parse(cartData);
 
             var index = cartArray.findIndex(function(item) {
-              return item.id === productId; // replace "3" with the ID of the item you want to remove
+              return item.id === productId; 
             });
 
             cartArray.splice(index, 1);

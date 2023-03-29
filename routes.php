@@ -22,7 +22,7 @@ $routes = array(
 
 
     // Admin panel
-    '/50249/admin' => 'AdminController@dashboard',
+    '/50249/admin/' => 'AdminController@dashboard',
     '/50249/admin/users' => 'AdminController@users',
     '/50249/admin/users/{id}' => 'AdminController@user',
     '/50249/admin/producten' => 'AdminController@producten',

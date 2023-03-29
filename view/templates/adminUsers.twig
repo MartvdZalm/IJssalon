@@ -14,10 +14,10 @@
             {% for user in users %}
                 {% if user.IsAdmin != 1 %}
                     <tr data-href="http://localhost/IJssalon/50249/admin/users/{{ user.id }}">
-                        <td data-label="ID">{{ user.id }}</td>
-                        <td data-label="Name">{{ user.Username }}</td>
-                        <td data-label="Email">{{ user.Email }}</td>
-                        <td data-label="Role">{{ 'Customer' }}</td>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.Username }}</td>
+                        <td>{{ user.Email }}</td>
+                        <td>Customer</td>
                     </tr>
                 {% endif %}
             {% endfor %}

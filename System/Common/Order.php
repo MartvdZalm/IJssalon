@@ -30,13 +30,13 @@ class Order
 
     public function accept()
     {
-        $query = "UPDATE `order` SET Status='ACCEPTED'";
-        $this->pdo->query($query);
+        $query = "UPDATE `order` SET Status='ACCEPTED' WHERE id=?";
+        $this->pdo->query($query, array($this->id));
     }
 
     public function cancel()
     {
-        $query = "UPDATE `order` SET Status='CANCELED'";
-        $this->pdo->query($query);
+        $query = "UPDATE `order` SET Status='CANCELED' WHERE id=?";
+        $this->pdo->query($query, array($this->id));
     }
 }
