@@ -6,13 +6,13 @@
         <a href="product/{{ product.id }}">
             <img src="view/image/{{ product.Image }}" alt={{ product.Name }}>
         </a>
-        <button class="order-button" data-id="{{ product.id }}">Order</button>
+        <button class="order-button" data-price="{{ product.Price }}" data-id="{{ product.id }}">Order</button>
     </div>
 
     <div>
         <p><b>Price:</b> &#x20AC; {{ product.Price }}</p>
         <p><b>Amount:</b> {{ product.Amount }}</p>
-        <p><b>Quantity:</b> {{ product.Quantity }}</p>
+        <p><b>Quantity:</b> {{ product.Quantity <= 0 ? 'Out of Stock' : product.Quantity }}</p>
         <p><b>Description:</b> {{ product.Description }}</p>
     </div>
     {% endif %}

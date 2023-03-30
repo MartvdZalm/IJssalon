@@ -15,13 +15,15 @@ class ApiController extends BaseController
         
         if (count($producten) != 0) {
             foreach ($producten as $item) {
-                array_push($ids, $item['id']);
+                if (isset($item['id'])) {
+                    array_push($ids, $item['id']);
         
-                // Increment quantity for this product ID
-                if (isset($quantities[$item['id']])) {
-                    $quantities[$item['id']]++;
-                } else {
-                    $quantities[$item['id']] = 1;
+                    // Increment quantity for this product ID
+                    if (isset($quantities[$item['id']])) {
+                        $quantities[$item['id']]++;
+                    } else {
+                        $quantities[$item['id']] = 1;
+                    }
                 }
             }
         

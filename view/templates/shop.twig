@@ -9,7 +9,7 @@
             <a href="product/{{ product.id }}">
                 <button>view</button>
             </a>
-            <button class="order-button" data-id="{{ product.id }}">Order</button>
+            <button class="order-button" data-price="{{ product.Price }}" data-id="{{ product.id }}">Order</button>
         </div>
         {% endfor %}
     </div>

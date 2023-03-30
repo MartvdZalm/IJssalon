@@ -44,8 +44,13 @@
                 <div class="form-group">
                     <label for="product-status">Product of the Day:</label>
                     <select id="product-status" name="flavourOfTheDay">
-                        <option value="1">Enabled</option>
-                        <option value="0">Disabled</option>
+                        {% if product.FlavourOfTheday == 1 %}
+                            <option value="1" selected>Enabled</option>
+                            <option value="0">Disabled</option>
+                        {% else %}
+                            <option value="1">Enabled</option>
+                            <option value="0" selected>Disabled</option>
+                        {% endif %}
                     </select>
                 </div>
             <button type="submit" name="product" class="btn">Save Changes</button>

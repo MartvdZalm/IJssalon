@@ -21,10 +21,10 @@ class User
 
     public function updateAccount($formData)
     {
-        $query = "UPDATE users SET Username=?, Email=?, Address=?, ZipCode=?, City=?, PhoneNumber=? WHERE Password=?";
+        $query = "UPDATE users SET Username=?, Email=?, Address=?, ZipCode=?, City=?, PhoneNumber=? WHERE Password=? AND id=?";
         $params = array(
             $formData['name'], $formData['email'], $formData['address'], $formData['zipcode'], 
-            $formData['city'], $formData['phonenumber'], md5($formData['password']),
+            $formData['city'], $formData['phonenumber'], md5($formData['password']), $_SESSION['id']
         );
         $this->pdo->query($query, $params);
     }

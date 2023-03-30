@@ -93,25 +93,17 @@ body {
 }
 
 .user-delete {
-    background-color: black;
-    color: #fff;
+    background-color: red;
+    color: white;
+    padding: 9px 20px;
     border: none;
-    border-radius: 5px;
-    opacity: 0;
-    padding: 5px 10px;
-    margin: 2px 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all .2s ease-in-out;
-    font-weight: bold;
 }
 
 .table tbody tr:hover {
     background-color: #4CAF50;
     color: #fff;
-}
-
-.table tbody tr:hover .user-delete {
-    opacity: 1;
 }
 
 

@@ -30,15 +30,17 @@ class OrderManager
         $query = "INSERT INTO orderproduct (`Order`, `Product`) VALUES (:order, :product)";
         $query2 = "UPDATE product SET Quantity = Quantity - 1, Bought = Bought + 1 WHERE id=:id";
         foreach ($ids as $productId) {
-            $params = array(
-                ':order' => $orderId,
-                ':product' => $productId['id']
-            );
-            $params2 = array(
-                ':id' => $productId['id']
-            );
-            $this->pdo->query($query, $params);
-            $this->pdo->query($query2, $params2);
+            if (isset($productId['id'])) {
+                $params = array(
+                    ':order' => $orderId,
+                    ':product' => $productId['id']
+                );
+                $params2 = array(
+                    ':id' => $productId['id']
+                );
+                $this->pdo->query($query, $params);
+                $this->pdo->query($query2, $params2);
+            }
         }
     }
     

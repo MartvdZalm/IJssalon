@@ -90,6 +90,7 @@ class AdminController extends BaseController
             $formData = $this->getFormData($formNames);
             $images = $this->getFormFileNames(array('image'));
             $product->changeValues($formData, $images);
+            $this->redirect(HTTP_ADMIN.'producten');
         }
 
         if (isset($_POST['delete'])) {

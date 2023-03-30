@@ -16,7 +16,7 @@ class ShopController extends BaseController
         $data = array(
             'producten' => $productManager->getProducts(),
         );
-        $this->render('order.twig', $data);
+        $this->render('shop.twig', $data);
         
         $this->content2($productManager);
 

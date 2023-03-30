@@ -1,6 +1,10 @@
 :root {
     --main-radius: 5px;
     --main-padding: 5px;
+    --brown-btn-hover: #8B4513;
+    --pink-color: #FFC6D9;
+    --pale-pink-color: #FCE5EC;
+    --beige-color: #F5DEB3;
 }
 
 * {
@@ -28,6 +32,7 @@ body {
   grid-gap: 2rem;
   text-transform: uppercase;
   text-align: center; 
+  background-color: #FFFFF0;
 }
 
 .content {
@@ -43,6 +48,11 @@ body {
     ;
     grid-gap: 2rem;
     text-align: center;
+}
+
+.content input {
+    background-color: var(--beige-color);
+    color: black;
 }
 
 @media only screen and (max-width: 1360px) {.content { width: 70%;}}
@@ -109,16 +119,28 @@ img {
     margin: 10px;
 }
 
-.content1 button {
-    padding: 8px 40px;
-    border: none;
-    border-radius: var(--main-radius);
-    border: 2px solid black;
-    background-color: white;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
+#alert-popup {
+    position: fixed;
+    text-transform: none;
+    z-index: 9999;
+    top: 100px;
+    right: 0;
+    background-color: var(--brown-btn-hover);
+    color: white;
+    padding: 20px;
+    display: none;
+    animation: slide-down 0.5s ease;
 }
+  
+@keyframes slide-down {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+  
 
 /* ================================================================================
 START Page css
@@ -212,9 +234,6 @@ END Register and Login css
 
 
 
-
-
-
 /* ================================================================================
 START Header css
 ===================================================================================*/ 
@@ -232,6 +251,7 @@ header {
     left: 0;
     right: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: var(--pale-pink-color);
 }
   
 .logo a {
@@ -317,9 +337,9 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #f5f5f5;
     padding: 40px;
     color: #333;
+    background-color: var(--pale-pink-color);
 }
   
 .footer-row {
@@ -386,10 +406,17 @@ START order css
     border: none;
     border-radius: var(--main-radius);
     border: 2px solid black;
-    background-color: white;
+    background-color: var(--beige-color);
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+    transition: all .2s ease-in-out;
+}
+
+.order button:hover,
+.product button:hover,
+.cart-products button:hover {
+    background-color: var(--brown-btn-hover);
 }
 
 .order a {
@@ -494,10 +521,15 @@ START account css
     border: none;
     border-radius: var(--main-radius);
     border: 2px solid black;
-    background-color: white;
+    background-color: var(--beige-color);
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+    transition: all .2s ease-in-out;
+}
+
+.account input[type=submit]:hover {
+    background-color: var(--brown-btn-hover);
 }
 
 @media only screen and (max-width: 450px) {
@@ -566,6 +598,7 @@ END cart css
     border: 2px solid black;
     cursor: pointer;
     padding: 2px;
+    background-color: var(--beige-color);
 }
 
 .cart form input[type=text] {
@@ -577,10 +610,15 @@ END cart css
     border: none;
     border-radius: var(--main-radius);
     border: 2px solid black;
-    background-color: white;
+    background-color: var(--beige-color);
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+    transition: all .2s ease-in-out;
+}
+
+.cart form input[type=submit]:hover {
+    background-color: var(--brown-btn-hover);
 }
 
 .cart-products {
@@ -592,6 +630,18 @@ END cart css
 .cart-products img {
     width: 100px;
     height: 100px;
+}
+
+.order-price {
+    text-transform: none;
+}
+
+.order-price div {
+    background-color: var(--beige-color);
+}
+
+.order-price p {
+    margin: 10px;
 }
 
 /* ================================================================================
