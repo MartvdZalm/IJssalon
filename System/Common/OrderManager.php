@@ -49,4 +49,10 @@ class OrderManager
         $query = "SELECT `order`.*, users.Username AS 'Name' FROM `order` LEFT JOIN users ON `order`.user = users.id";
         return $this->pdo->query($query);
     } 
+
+    public function getOrdersId($id)
+    {
+        $query = "SELECT * FROM `order` WHERE `order`.User=?";
+        return $this->pdo->query($query, array($id));
+    }
 }

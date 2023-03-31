@@ -6,6 +6,7 @@ $routes = array(
     '/' => 'ShopController@index',
     '/about' => 'AboutController@index',
     '/account' => 'AccountController@index',
+    '/account/order/{id}' => 'AccountController@order',
     '/contact' => 'HomeController@index',
     '/cart' => 'CartController@index',
     '/register' => 'RegisterController@index',

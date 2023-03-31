@@ -1,5 +1,8 @@
 $(document).ready(function()
 {
+  $('tr[data-href]').click(function() {
+    window.location = $(this).data('href');
+  });
   
   $('.menu-toggle').click(function() {
     $(this).toggleClass('active');
@@ -40,6 +43,14 @@ $(document).ready(function()
     });
   });
 
+  // Delete account check
+  $("#delete-account-btn").click(function() {
+    if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+      $("#account-form").submit();
+    }
+  });
+
+  // All the functionality for the cart
   if (window.location.href == 'http://localhost/IJssalon/cart') {
 
     function cartProducten()
@@ -119,9 +130,11 @@ function calculateTotalPrice() {
   let products = JSON.parse(localStorage.getItem('cart'));
 
   let totalPrice = 0;
-  for (let i = 0; i < products.length; i++) {
-    if (products[i].price) {
-      totalPrice += parseInt(products[i].price);
+  if (products) {
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].price) {
+        totalPrice += parseInt(products[i].price);
+      }
     }
   }
 

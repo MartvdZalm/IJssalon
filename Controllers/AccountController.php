@@ -1,6 +1,8 @@
 <?php
 namespace Controllers;
 
+use System\Common\Order;
+use System\Common\OrderManager;
 use System\Common\ProductManager;
 use System\Common\User;
 
@@ -20,6 +22,7 @@ class AccountController extends BaseController
 
         $productManager = new ProductManager();
         $user = new User();
+        $orderManager = new OrderManager();
 
         if (!isset($_SESSION['id'])) {
             $this->redirect(HTTP_SERVER.'login');
@@ -50,8 +53,29 @@ class AccountController extends BaseController
 
         $data = array(
             'user' => $user->getUser($_SESSION['id']),
+            'orders' => $orderManager->getOrdersId($_SESSION['id']),
         );
         $this->render('account.twig', $data);
+        
+        $this->content2($productManager);
+
+        $this->footer();
+    }
+
+    public function order($id)
+    {
+        $productManager = new ProductManager();
+        $order = new Order($id);
+
+        $this->header('Order');
+
+        $this->content1($productManager);
+
+        $data = array(
+            'order' => $order->getOrder(),
+            'producten' => $order->getProducts(),
+        );
+        $this->render('order.twig', $data);
         
         $this->content2($productManager);
 

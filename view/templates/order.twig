@@ -1,0 +1,39 @@
+<main class="account">
+    <h1>Order</h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ order.Name }}</td>
+                    <td>{{ order.Address }}</td>
+                    <td>{{ order.City }}</td>
+                    <td>{{ order.Type }}</td>
+                    <td>{{ order.Date }}</td>
+                    <td>{{ order.Status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table>
+            <tbody>
+                {% for product in producten %}
+                <tr>
+                    <td><img src="view/image/{{ product.Image }}"></td>
+                    <td>{{ product.Name }}</td>      
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>

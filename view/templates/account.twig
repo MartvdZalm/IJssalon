@@ -1,5 +1,4 @@
 <main class="account">
-    {% if user %}
     <h2>{{ user.Username }}</h2>
     <div>
         <form method="post">
@@ -29,9 +28,32 @@
             
             <div class="account-buttons">
                 <input type="submit" name="change" value="Change">
-                <input type="submit" name="deleteAccount" value="Delete account">
+                <input type="submit" name="deleteAccount" id="delete-account-btn" value="Delete account">
             </div>
         </form>
     </div>
-    {% endif %}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr data-href="http://localhost/IJssalon/account/order/{{ order.id }}">
+                    <td>{{ order.Address }}</td>
+                    <td>{{ order.City }}</td>
+                    <td>{{ order.Type }}</td>
+                    <td>{{ order.Date }}</td>
+                    <td>{{ order.Status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </main>

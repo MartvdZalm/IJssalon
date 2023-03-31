@@ -157,7 +157,7 @@ START Register and Login css
     grid-column: 1 / 5;
     place-items: center;
     height: 100vh;
-    background: url('../image/login-bg.jpg') no-repeat;
+    background: url('../image/login-bg.webp') no-repeat;
     background-size: cover;
     text-transform: none;
 }
@@ -417,6 +417,7 @@ START order css
 .product button:hover,
 .cart-products button:hover {
     background-color: var(--brown-btn-hover);
+    color: white;
 }
 
 .order a {
@@ -508,6 +509,12 @@ START account css
     width: 100%;
 }
 
+.account input {
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+}
+
 .account label {
     text-align: right;
     padding-right: 10px;
@@ -530,6 +537,77 @@ START account css
 
 .account input[type=submit]:hover {
     background-color: var(--brown-btn-hover);
+    color: white;
+}
+
+.account table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.account table img {
+    width: 70px;
+    height: 70px;
+}
+
+.account table th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--beige-color);
+}
+
+.account table td {
+    padding: 8px;
+    height: 30px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.account table tbody tr {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.account table th {
+    background-color: var(--beige-color);
+}
+
+.account table tbody tr:hover {
+    background-color: var(--brown-btn-hover);
+    color: #fff;
+}
+  
+@media screen and (max-width: 600px) {
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 20px;
+        display: block;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody td {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        border-bottom: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 8px;
+        font-weight: bold;
+        text-align: left;
+    }
 }
 
 @media only screen and (max-width: 450px) {
@@ -619,6 +697,7 @@ END cart css
 
 .cart form input[type=submit]:hover {
     background-color: var(--brown-btn-hover);
+    color: white;
 }
 
 .cart-products {
