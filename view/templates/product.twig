@@ -1,5 +1,4 @@
 <main class="product">
-    {% if product %}
     <h2>{{ product.Name }}</h2>
 
     <div class="product-image">
@@ -15,5 +14,4 @@
         <p><b>Quantity:</b> {{ product.Quantity <= 0 ? 'Out of Stock' : product.Quantity }}</p>
         <p><b>Description:</b> {{ product.Description }}</p>
     </div>
-    {% endif %}
 </main>
