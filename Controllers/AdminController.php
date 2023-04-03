@@ -170,11 +170,24 @@ class AdminController extends BaseController
         $orderData = $order->getOrder();
         $producten = $order->getProducts();
 
+        if (count($producten) != 0) {
+            foreach ($producten as $item) {
+                if (isset($item['id'])) {
+                    if (isset($quantities[$item['id']])) {
+                        $quantities[$item['id']]++;
+                    } else {
+                        $quantities[$item['id']] = 1;
+                    }
+                }
+            }
+        }
+
         $this->adminHeader('Admin - Order');
 
         $data = array(
             'order' => $orderData,
             'producten' => $producten,
+            'quantities' => $quantities
         );
 
         $this->render('adminOrder.twig', $data);

@@ -55,4 +55,29 @@ class MessageController extends BaseController
 
         $this->footer(); 
     }
+
+    public function error404()
+    {
+        $productManager = new ProductManager();
+
+        $title = 'Page Not Found';
+        $text = "
+            Oops, it looks like you've stumbled upon a page that doesn' exist! Don't worry, it's not your fault. Sometimes, links go missing or pages get moved around.
+            We apologize for any inconvenience this may have caused. Use the navigation bar above to explore other parts of our site
+        ";
+
+        $this->header('Message');
+
+        $this->content1($productManager);
+
+        $data = array(
+            'title' => $title,
+            'text' => $text
+        );
+        $this->render('message.twig', $data);
+        
+        $this->content2($productManager);
+
+        $this->footer(); 
+    }
 }

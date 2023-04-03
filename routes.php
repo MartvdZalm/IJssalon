@@ -15,6 +15,7 @@ $routes = array(
     '/product/{id}' => 'ProductController@index',
     '/message/order' => 'MessageController@order',
     '/message/account' => 'MessageController@account',
+    '/404' => 'MessageController@error404',
 
     // Api 
     '/api/cart' => 'ApiController@cart',

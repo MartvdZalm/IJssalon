@@ -45,7 +45,7 @@ foreach ($routes as $route => $controller_action) {
 
 if (!$route_matched) {
     // handle 404 error
-    header('Location: '. HTTP_SERVER .'error.html');
+    header('Location: '. HTTP_SERVER . '404');
 }
 
 

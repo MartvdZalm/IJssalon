@@ -39,13 +39,26 @@
                 </tr>
             </thead>
             <tbody>
+                {% set unique_products = [] %}
                 {% for product in producten %}
-                <tr data-href="http://localhost/IJssalon/50249/admin/producten/{{ product.id }}">
-                    <td data-label="ID">{{ product.id }}</td>
-                    <td data-label="Image"><img src="view/image/{{ product.Image }}"></td>
-                    <td data-label="Name">{{ product.Name }}</td>      
-                    <td data-label="Stock">{{ product.Quantity }}</td>
-                </tr>
+                    {% set exists = false %}
+                    {% for unique_product in unique_products %}
+                        {% if product.id == unique_product.id %}
+                            {% set exists = true %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if not exists %}
+                        {% set unique_products = unique_products|merge([product]) %}
+                    {% endif %}
+                {% endfor %}
+
+                {% for product in unique_products %}
+                    <tr data-href="http://localhost/IJssalon/50249/admin/producten/{{ product.id }}">
+                        <td data-label="ID">{{ product.id }}</td>
+                        <td data-label="Image"><img src="view/image/{{ product.Image }}"></td>
+                        <td data-label="Name">{{ product.Name }}</td>      
+                        <td data-label="Stock">{{ quantities[product.id] }}</td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
